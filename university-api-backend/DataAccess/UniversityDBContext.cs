@@ -11,5 +11,6 @@ namespace university_api_backend.DataAccess
         }
         //va a crear las tablas dentro de nuestra bases de datos
         public DbSet<User>? Users { get; set; }
+        public DbSet<Curso>? Curso { get; set; }
     }
 }
