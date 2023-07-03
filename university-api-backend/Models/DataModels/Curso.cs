@@ -27,6 +27,15 @@ namespace university_api_backend.Models.DataModels
 
         [Required]
         public NivelCurso Nivel { get; set; }
+
+        [Required]
+        public ICollection<Categoria> Categorias { get; set; } = new List<Categoria>();
+
+        [Required]
+        public ICollection<Alumno> Alumnos { get; set; } = new List<Alumno>();
+        [Required]
+        public ICollection<Capitulo> Capitulos { get; set; } = new List<Capitulo>();
     }
+
 }
 
