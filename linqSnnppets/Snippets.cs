@@ -165,15 +165,24 @@ namespace linqSnnppets
 
             bool saberQueHayEmpresas = empresas.Any();// true si hay
 
-            bool hayEmpleados = empresas.Any(empresa=>empresa.Empleados.Any());
+            bool hayEmpleados = empresas.Any(empresa => empresa.Empleados.Any());
 
             bool hayEmpleadoSalarioMayor = empresas.Any(empresa => empresa.Empleados.Any(empleado => empleado.Salario > 1000));
 
 
+        }
+
+        static public void linqCollection()
+        {
+            var primerLista = new List<string>() { "a", "b", "c" };
+            var segundaLista = new List<string>() { "a", "b", "d" };
 
 
-
-
+            //JOIN de listas
+            var listaJoin = primerLista.Join(segundaLista,
+                elemento => elemento,
+                segundoElemento => segundoElemento,
+                (elemento, segundaElemento) => new { elemento, segundaElemento });
 
         }
     }
