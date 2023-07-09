@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics.SymbolStore;
 
 namespace linqSnnppets
 {
@@ -83,41 +84,98 @@ namespace linqSnnppets
             var myNumbers = evenNumbers.Except(otrosEvenNumbers);//{4,8}
 
 
-            var Empresas = new[]
+            var empresas = new[]
             {
-                new Empresa()
+                new Empresa
                 {
                     Id = 1,
-                    Name="Empresa 1",
-                   Empleados =new []
-                {
-                 new Empleado()
+                    Name = "Empresa 1",
+                    Empleados = new[]
+                    {
+                        new Empleado
+                        {
+                            Id=1,
+                            Nombre="Pyvan",
+                            Email="pyvan@gmail.com",
+                            Salario = 3000
+                        },new Empleado
+                         {
+                            Id=2,
+                            Nombre="Jorge",
+                            Email="Jorge@gmail.com",
+                            Salario = 6000
+                        },new Empleado
+                          {
+                            Id=3,
+                            Nombre="Norberto",
+                            Email="Norberto@gmail.com",
+                            Salario = 2000
+                        },new Empleado
+                          {
+                            Id=4,
+                            Nombre="Pepe",
+                            Email="pepe@gmail.com",
+                            Salario = 2000
+                        },
+
+                    }
+                },
+                 new Empresa
                 {
                     Id = 2,
-                    Nombre="Pedro",
-                    Email="pedro@hotmail.com",
-                    Salario=3000
+                    Name = "Empresa 2",
+                    Empleados = new[]
+                    {
+                        new Empleado
+                        {
+                            Id = 5,
+                            Nombre="Jazmin",
+                            Email="jazmin@gmail.com",
+                            Salario = 3000
+                        },new Empleado
+                         {
+                            Id=6,
+                            Nombre="Loki",
+                            Email="loki@gmail.com",
+                            Salario = 6000
+                        },new Empleado
+                          {
+                            Id=7,
+                            Nombre="sandes",
+                            Email="sans@gmail.com",
+                            Salario = 2000
+                        },new Empleado
+                          {
+                            Id=8,
+                            Nombre="javi",
+                            Email="javi@gmail.com",
+                            Salario = 2000
+                        },
+
+                    }
                 },
-                  new Empleado()
-                {
-                    Id = 3,
-                    Nombre="Jr Martin",
-                    Email="martin@hotmail.com",
-                    Salario=3000
-                },
-                   new Empleado()
-                {
-                    Id = 4,
-                    Nombre="Nancy",
-                    Email="Nancy@hotmail.com",
-                    Salario=3000
-                }
-            }
-} };
+
+            };
+
+            //obtener todos los empleados de las empresas
+
+            var empleadosList = empresas.SelectMany(empresa => empresa.Empleados); //lista de empleados
+
+            //saber si tenemos una lista vacia
+
+            bool saberQueHayEmpresas = empresas.Any();// true si hay
+
+            bool hayEmpleados = empresas.Any(empresa=>empresa.Empleados.Any());
+
+            bool hayEmpleadoSalarioMayor = empresas.Any(empresa => empresa.Empleados.Any(empleado => empleado.Salario > 1000));
+
+
+
+
+
+
+
         }
     }
 }
-
-
-
 
