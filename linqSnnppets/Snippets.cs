@@ -178,7 +178,7 @@ namespace linqSnnppets
             var segundaLista = new List<string>() { "a", "b", "d" };
 
 
-            //JOIN de listas
+            //INNER JOIN de listas
             var listaJoin = primerLista.Join(segundaLista,
                 elemento => elemento,
                 segundoElemento => segundoElemento,
