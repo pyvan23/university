@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using System.Diagnostics.SymbolStore;
+using System.Collections.ObjectModel;
 
 namespace linqSnnppets
 {
@@ -185,6 +186,29 @@ namespace linqSnnppets
                 (elemento, segundaElemento) => new { elemento, segundaElemento });
 
         }
+        //paginado con skip y take
+        static public IEnumerable<T> GetPage<T>(IEnumerable<T> collection, int pageNumber, int resultsPerPage)
+        { 
+        
+            int startIndex = (pageNumber - 1) * resultsPerPage;
+            return collection.Skip(startIndex).Take(resultsPerPage);    
+        
+        
+        }
+
+        static public void LinqVariables() {
+
+            int[] numbers = { 1, 2, 3, 4, 5, 6, 7,8,9 ,10};
+            var aboveAverege = from number in numbers
+                               let averege = numbers.Average()
+                               let nSquare = Math.Pow(number,2)     
+                               where nSquare > averege
+                               select number;
+        
+        
+        }
+
+
     }
 }
 
